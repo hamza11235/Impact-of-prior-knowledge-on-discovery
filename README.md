@@ -297,14 +297,115 @@ Detailed protocols and reproduction commands are documented in:
 
 ## Where this goes next
 
-A larger benchmark should vary:
+This pilot isolates one law pair, one selected adapter, and a small number of evidence
+trajectories. Several extensions would turn the diagnostic into a broader discovery
+benchmark.
 
-- law families and symbolic complexity;
-- the strength and portability of the stored prior;
-- evidence order and diagnosticity;
-- noise and ambiguity;
-- model family and scale;
-- in-context, weight-based, and external-memory priors.
+### Counterbalance the scientific laws
 
-That broader version would ask not merely whether a model reaches a correct theory, but
-how its accumulated knowledge changes the evidence required to get there.
+The current experiment always teaches $L_A$ and generates new evidence from $L_B$. A
+larger benchmark should contain many matched law pairs and reverse which law acts as the
+prior. This would separate genuine resistance to revision from a model’s pre-existing
+preference for particular variables, integer exponents, or equation shapes.
+
+The hypothesis class could then expand from multiplicative power laws to additive,
+exponential, rational, piecewise, and conservation-law relationships.
+
+### Measure prior strength rather than treating it as binary
+
+A law is not simply known or unknown. Future experiments should create a graded family
+of priors through different fine-tuning durations, curriculum sizes, adapter scales, or
+memory-retrieval strengths.
+
+Prior strength should also be measured behaviorally—for example, through held-out recall
+and the probability assigned to competing laws—rather than inferred only from training
+hyperparameters. This would allow a switching curve of the form
+
+$$
+P(\widehat{L}=L_B)
+=
+F(\text{prior strength},\text{evidence strength}).
+$$
+
+### Map the evidence threshold for revision
+
+The present sequential protocol provides only four evidence stages. A denser design could
+vary:
+
+- the number of observations;
+- the size of the disagreement between $L_A$ and $L_B$;
+- whether contradictions are replicated;
+- which variable is intervened on first;
+- whether the evidence attacks one component or the entire prior.
+
+The goal would be to estimate how much diagnostic evidence is required before a system
+switches theories, and whether the transition is smooth, abrupt, or componentwise.
+
+### Introduce noise, ambiguity, and spurious correlations
+
+Clean evidence was useful for establishing the basic phenomenon, but real scientific data
+are rarely decisive. Future versions should test:
+
+- measurement noise;
+- too few observations to identify a unique law;
+- distractor variables correlated only in the observed sample;
+- outliers and contradictory measurements;
+- two theories with nearly indistinguishable predictions.
+
+These regimes would reveal whether prior knowledge improves sample efficiency when it is
+correct while creating inertia when it is wrong.
+
+### Compare different ways of storing knowledge
+
+The current comparison covers an in-context statement and one LoRA adapter. The same
+protocol could compare:
+
+- full-parameter fine-tuning;
+- other parameter-efficient adapters;
+- retrieval-augmented memory;
+- editable knowledge graphs;
+- recurrent or continual-learning state;
+- explicit symbolic rules.
+
+This would test whether different memory mechanisms produce different forms of
+stickiness, locality, and reversibility.
+
+### Move from passive inference to active discovery
+
+Here the benchmark chooses the observations and the model only interprets them. A more
+capable scientific agent should decide what to measure next. The model could select an
+intervention that maximally distinguishes its current prior from an alternative:
+
+$$
+x_{t+1}
+=
+\arg\max_x
+\operatorname{InformationGain}(x\mid\mathcal{H}_t).
+$$
+
+This would let the benchmark ask whether a strong prior merely biases interpretation or
+also discourages the model from running the experiment most likely to falsify it.
+
+### Connect the synthetic benchmark to historical discovery
+
+The long-term motivation is a controlled “rewind” question: if direct access to a
+scientific result were removed or suppressed, could a model reconstruct it from the
+observations and tools available before the discovery?
+
+Synthetic laws are a necessary first step because the prior, evidence, and correct answer
+can be controlled exactly. A historically grounded extension would additionally need to
+control indirect leakage through terminology, downstream consequences, derivations, and
+related facts. The present benchmark supplies the behavioral template for that harder
+problem:
+
+$$
+\text{prior scientific state}
+\;+\;
+\text{historically available evidence}
+\;\longrightarrow\;
+\text{discovery or resistance}.
+$$
+
+Together, these directions would shift evaluation from asking only whether a model can
+produce a correct theory to asking how its accumulated knowledge changes what it notices,
+which experiments it chooses, and how much evidence it requires to change its mind.
