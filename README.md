@@ -3,6 +3,9 @@
 A controlled diagnostic for studying how language models combine previously supplied
 scientific knowledge with new numerical observations.
 
+[![Notebook 1: in-context baseline](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamza11235/Impact-of-prior-knowledge-on-discovery/blob/main/notebooks/prior_evidence_demo.ipynb)
+[![Notebook 2: weight prior](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamza11235/Impact-of-prior-knowledge-on-discovery/blob/main/notebooks/02_weight_prior_and_sequential_revision.ipynb)
+
 This repository is being assembled experiment by experiment. The first completed block
 asks whether a fictional scientific law supplied in context biases Qwen3-8B against
 recovering a conflicting law from clean, controlled measurements.
@@ -65,6 +68,10 @@ training data, final adapter, evaluation gates, raw sequential traces, and repro
 commands.
 
 ## Interactive notebooks
+
+Both notebooks can be opened directly in Colab using the badges above. In their default
+cached mode, the first cell fetches this repository and all checked-in artifacts; no model
+download, GPU, or credentials are required.
 
 Open [Notebook 1: the in-context baseline](notebooks/prior_evidence_demo.ipynb) for the
 first experiment. Its default cached mode:

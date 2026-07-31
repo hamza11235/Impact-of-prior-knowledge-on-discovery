@@ -31,6 +31,8 @@ def build_notebook() -> nbf.NotebookNode:
         nbf.v4.new_markdown_cell(
             r"""# Prior knowledge versus new evidence
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamza11235/Impact-of-prior-knowledge-on-discovery/blob/main/notebooks/prior_evidence_demo.ipynb)
+
 This notebook is the reviewer-facing demonstration for the first experimental block.
 
 **Question:** if a fictional scientific law is stated as established background knowledge,
@@ -54,6 +56,32 @@ jupyter lab notebooks/prior_evidence_demo.ipynb
 ```
 
 No credentials, model weights, or external services are required in cached mode."""
+        )
+    )
+
+    cells.append(
+        nbf.v4.new_code_cell(
+            """# Fresh Colab sessions open only the notebook, so fetch its accompanying
+# source code and experiment artifacts automatically. This cell is a no-op after cloning
+# the repository locally.
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+REPOSITORY_URL = (
+    "https://github.com/hamza11235/"
+    "Impact-of-prior-knowledge-on-discovery.git"
+)
+if "google.colab" in sys.modules:
+    colab_root = Path("/content/Impact-of-prior-knowledge-on-discovery")
+    if not (colab_root / "pyproject.toml").exists():
+        subprocess.run(
+            ["git", "clone", "--depth", "1", REPOSITORY_URL, str(colab_root)],
+            check=True,
+        )
+    os.chdir(colab_root)
+    print(f"Colab repository ready: {colab_root}")"""
         )
     )
 
