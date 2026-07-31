@@ -19,7 +19,7 @@ $$
 
 This experiment follows the in-context baseline in
 [`../01_in_context_vs_base`](../01_in_context_vs_base/README.md). Unlike that first
-experiment, the prompt does not supply \(L_A\): the selected arm must retrieve it from
+experiment, the prompt does not supply $L_A$: the selected arm must retrieve it from
 the LoRA parameters.
 
 ## Selected adapter
@@ -31,7 +31,7 @@ Only the final selected pilot is included here:
 - trainable layers: 16;
 - rank: 8;
 - scale: 16;
-- learning rate: \(2\times10^{-5}\);
+- learning rate: $2\times10^{-5}$;
 - effective batch size: 4;
 - sequence length: 2,048;
 - iterations: 80;
@@ -54,46 +54,46 @@ The adapter produced a real but incomplete prior:
 
 | Gate | Result |
 |---|---:|
-| Training-shaped \(L_A\) recall | pass |
+| Training-shaped $L_A$ recall | pass |
 | Portable recall, thinking enabled | 3/6 |
 | Portable recall, thinking disabled | 0/6 |
-| Confirming \(L_A\) evidence | exact pass |
-| Decisive conflicting \(L_B\) evidence | exact pass |
+| Confirming $L_A$ evidence | exact pass |
+| Decisive conflicting $L_B$ evidence | exact pass |
 | Held-out fictional-domain law induction | exact pass at 6,144 tokens |
 | Simple algebra | pass |
 
 Consequently, the adapter is not presented as robustly internalized scientific
 knowledge. It is a prompt- and mode-dependent weight prior that is strong enough to
-preregister \(L_A\) before any new evidence in the main sequential protocol.
+preregister $L_A$ before any new evidence in the main sequential protocol.
 
 ## Sequential evidence protocol
 
 The model first records its current neryx law before seeing any observations. Evidence
-from \(L_B\) is then revealed cumulatively:
+from $L_B$ is then revealed cumulatively:
 
-1. baseline and two \(m\) interventions, which are compatible with both laws;
-2. one anomalous \(r\) intervention;
-3. a replicated \(r\) intervention and the first \(q\) intervention;
-4. the remaining \(q\) and \(s\) interventions.
+1. baseline and two $m$ interventions, which are compatible with both laws;
+2. one anomalous $r$ intervention;
+3. a replicated $r$ intervention and the first $q$ intervention;
+4. the remaining $q$ and $s$ interventions.
 
 Neither candidate law is named in the prompts, and the system is not instructed to
 override its prior. The primary outcome is the first stage at which the model selects
-\(L_B\).
+$L_B$.
 
-| Seed | Base prior | Weight prior | Base first \(L_B\) | Weight first \(L_B\) |
+| Seed | Base prior | Weight prior | Base first $L_B$ | Weight first $L_B$ |
 |---:|---|---|---:|---:|
-| 7100 | none | \(L_A\) | 3 | 3 |
-| 7200 | none | \(L_A\) | 3 | 3 |
-| 7300 | none | \(L_A\) | 3 | 4 |
+| 7100 | none | $L_A$ | 3 | 3 |
+| 7200 | none | $L_A$ | 3 | 3 |
+| 7300 | none | $L_A$ | 3 | 4 |
 
-Both arms ultimately recovered \(L_B\) in all three paired runs. The weight-encoded
+Both arms ultimately recovered $L_B$ in all three paired runs. The weight-encoded
 prior delayed the final law selection by one evidence batch in one run—the run whose
-first \(q\) intervention produced the weakest conflict with the \(q^{-1}\) prior.
+first $q$ intervention produced the weakest conflict with the $q^{-1}$ prior.
 
 The supported result is therefore:
 
-> The selected LoRA produced a retrievable but incomplete \(L_A\) prior. That prior
-> remained defeasible: it did not block discovery of \(L_B\), although it delayed
+> The selected LoRA produced a retrievable but incomplete $L_A$ prior. That prior
+> remained defeasible: it did not block discovery of $L_B$, although it delayed
 > selection once under the least decisive early contradiction.
 
 Three paired runs do not establish a general statistical scaling law for prior
