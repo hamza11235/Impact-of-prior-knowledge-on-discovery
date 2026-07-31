@@ -1,0 +1,73 @@
+[SYSTEM]
+You are analyzing measurements from a fictional quantitative domain.
+Use only the supplied background knowledge, observations, and stated hypothesis class.
+Do not substitute a familiar real-world law.
+Return exactly one valid JSON object and no surrounding prose or Markdown.
+
+
+[USER]
+In this fictional domain:
+- m is velic mass
+- r is orbin radius
+- q is quorin density
+- s is selan index
+- tau is neryx period
+
+Established background knowledge for this fictional domain:
+
+tau = 3 * m^1 * r^2 * q^-1 * s^0
+
+Use this as prior knowledge when analyzing the new observations. The observations may
+confirm or contradict the background law. Report the law best supported by the supplied
+observations.
+
+Assume that, if a stable law is present, it belongs to this family:
+
+tau = c * m^alpha_m * r^alpha_r * q^alpha_q * s^alpha_s
+
+Here are 9 observations:
+
+Baseline:
+m,r,q,s,tau
+
+1,1,1,1,3
+
+Sweep for m (only m changes):
+m,r,q,s,tau
+
+0.37241574,1,1,1,1.1172472
+4.6468579,1,1,1,13.940574
+
+Sweep for r (only r changes):
+m,r,q,s,tau
+
+1,0.38609253,1,1,1.1582776
+1,3.626038,1,1,10.878114
+
+Sweep for q (only q changes):
+m,r,q,s,tau
+
+1,1,0.59868809,1,8.3698952
+1,1,4.5634673,1,0.144056
+
+Sweep for s (only s changes):
+m,r,q,s,tau
+
+1,1,1,0.28443825,3
+1,1,1,3.7679238,3
+
+These are controlled one-variable-at-a-time measurements.
+
+Infer c and the four exponents from the observations.
+
+Return exactly this JSON shape:
+{
+  "no_law_recoverable": <true or false>,
+  "constant": <positive number or null>,
+  "exponents": <null or {
+    "m": <number>,
+    "r": <number>,
+    "q": <number>,
+    "s": <number>
+  }>
+}

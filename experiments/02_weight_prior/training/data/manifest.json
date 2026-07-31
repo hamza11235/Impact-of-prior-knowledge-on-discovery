@@ -1,0 +1,71 @@
+{
+  "accepted_attempts": 13,
+  "attempts": 18,
+  "max_tokens": 2048,
+  "model": "mlx-community/Qwen3-8B-4bit",
+  "seed": 271828,
+  "temperature": 0.6,
+  "validation": {
+    "kind_counts": {
+      "test": {
+        "retain": 1,
+        "target": 6
+      },
+      "train": {
+        "retain": 4,
+        "target": 24
+      },
+      "valid": {
+        "retain": 1,
+        "target": 6
+      }
+    },
+    "reasoning_distinct_from_answers": true,
+    "reasoning_lengths": {
+      "test": {
+        "maximum_reasoning_characters": 3552,
+        "mean_reasoning_characters": 1833.4285714285713,
+        "minimum_reasoning_characters": 1145
+      },
+      "train": {
+        "maximum_reasoning_characters": 4835,
+        "mean_reasoning_characters": 2040.607142857143,
+        "minimum_reasoning_characters": 755
+      },
+      "valid": {
+        "maximum_reasoning_characters": 6778,
+        "mean_reasoning_characters": 2624.4285714285716,
+        "minimum_reasoning_characters": 853
+      }
+    },
+    "split_sizes": {
+      "test": 7,
+      "train": 28,
+      "valid": 7
+    },
+    "target_format_counts": {
+      "test": {
+        "equation": 1,
+        "json_parameters": 1,
+        "numeric": 2,
+        "parameters": 1,
+        "prose_dependencies": 1
+      },
+      "train": {
+        "equation": 3,
+        "json_parameters": 3,
+        "numeric": 12,
+        "parameters": 3,
+        "prose_dependencies": 3
+      },
+      "valid": {
+        "equation": 1,
+        "json_parameters": 1,
+        "numeric": 2,
+        "parameters": 1,
+        "prose_dependencies": 1
+      }
+    },
+    "teacher_law_absent_from_student_prompts": true
+  }
+}

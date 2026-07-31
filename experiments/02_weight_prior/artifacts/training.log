@@ -1,0 +1,43 @@
+^DLoading configuration file configs/lora_law_a_mlx_diverse_v2_080.yaml
+Loading pretrained model
+
+
+
+Loading datasets
+Training
+Trainable parameters: 0.118% (9.699M/8190.735M)
+Starting training..., iters: 80
+
+Iter 1: Val loss 0.535, Val took 49.590s
+Iter 5: Train loss 0.858, Learning Rate 2.000e-05, It/sec 0.116, Tokens/sec 62.589, Trained Tokens 2708, Peak mem 6.524 GB
+Iter 10: Train loss 0.538, Learning Rate 2.000e-05, It/sec 0.069, Tokens/sec 61.888, Trained Tokens 7218, Peak mem 7.584 GB
+Iter 15: Train loss 0.808, Learning Rate 2.000e-05, It/sec 0.151, Tokens/sec 59.292, Trained Tokens 9175, Peak mem 7.584 GB
+
+Iter 20: Val loss 0.433, Val took 48.578s
+Iter 20: Train loss 0.468, Learning Rate 2.000e-05, It/sec 0.075, Tokens/sec 60.994, Trained Tokens 13231, Peak mem 7.974 GB
+Iter 20: Saved adapter weights to adapters/law-a-qwen3-8b-diverse-v2-080/adapters.safetensors and adapters/law-a-qwen3-8b-diverse-v2-080/0000020_adapters.safetensors.
+Iter 25: Train loss 0.427, Learning Rate 2.000e-05, It/sec 0.087, Tokens/sec 65.214, Trained Tokens 16973, Peak mem 7.974 GB
+Iter 30: Train loss 0.476, Learning Rate 2.000e-05, It/sec 0.099, Tokens/sec 64.990, Trained Tokens 20239, Peak mem 7.974 GB
+Iter 35: Train loss 0.479, Learning Rate 2.000e-05, It/sec 0.082, Tokens/sec 59.161, Trained Tokens 23832, Peak mem 7.974 GB
+
+Iter 40: Val loss 0.385, Val took 45.155s
+Iter 40: Train loss 0.356, Learning Rate 2.000e-05, It/sec 0.120, Tokens/sec 62.975, Trained Tokens 26459, Peak mem 7.974 GB
+Iter 40: Saved adapter weights to adapters/law-a-qwen3-8b-diverse-v2-080/adapters.safetensors and adapters/law-a-qwen3-8b-diverse-v2-080/0000040_adapters.safetensors.
+Iter 45: Train loss 0.356, Learning Rate 2.000e-05, It/sec 0.080, Tokens/sec 62.946, Trained Tokens 30391, Peak mem 7.974 GB
+Iter 50: Train loss 0.371, Learning Rate 2.000e-05, It/sec 0.123, Tokens/sec 60.051, Trained Tokens 32837, Peak mem 7.974 GB
+Iter 55: Train loss 0.280, Learning Rate 2.000e-05, It/sec 0.090, Tokens/sec 59.613, Trained Tokens 36166, Peak mem 8.051 GB
+
+Iter 60: Val loss 0.338, Val took 49.756s
+Iter 60: Train loss 0.200, Learning Rate 2.000e-05, It/sec 0.100, Tokens/sec 59.576, Trained Tokens 39136, Peak mem 8.051 GB
+Iter 60: Saved adapter weights to adapters/law-a-qwen3-8b-diverse-v2-080/adapters.safetensors and adapters/law-a-qwen3-8b-diverse-v2-080/0000060_adapters.safetensors.
+Iter 65: Train loss 0.178, Learning Rate 2.000e-05, It/sec 0.130, Tokens/sec 70.274, Trained Tokens 41847, Peak mem 8.051 GB
+Iter 70: Train loss 0.243, Learning Rate 2.000e-05, It/sec 0.131, Tokens/sec 69.695, Trained Tokens 44502, Peak mem 8.051 GB
+Iter 75: Train loss 0.242, Learning Rate 2.000e-05, It/sec 0.072, Tokens/sec 63.443, Trained Tokens 48911, Peak mem 8.051 GB
+
+Iter 80: Val loss 0.326, Val took 48.631s
+Iter 80: Train loss 0.284, Learning Rate 2.000e-05, It/sec 0.089, Tokens/sec 64.544, Trained Tokens 52550, Peak mem 8.051 GB
+Iter 80: Saved adapter weights to adapters/law-a-qwen3-8b-diverse-v2-080/adapters.safetensors and adapters/law-a-qwen3-8b-diverse-v2-080/0000080_adapters.safetensors.
+Saved final weights to adapters/law-a-qwen3-8b-diverse-v2-080/adapters.safetensors.
+Testing
+
+Test loss 0.328, Test ppl 1.389.

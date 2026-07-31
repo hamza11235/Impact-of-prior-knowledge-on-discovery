@@ -1,0 +1,88 @@
+{
+  "protocol": "sequential_conflicting_evidence",
+  "model": "mlx-community/Qwen3-8B-4bit",
+  "weight_prior_adapter": "adapters/law-a-qwen3-8b-diverse-v2-080",
+  "seeds": [
+    {
+      "dataset_seed": 7100,
+      "first_q_intervention": 0.3059069135651601,
+      "l_b_to_l_a_prediction_ratio_at_first_q_intervention": 3.2689682895545076,
+      "base_prior": "none",
+      "weight_prior": "L_A",
+      "base_first_law_b_stage": 3,
+      "weight_prior_first_law_b_stage": 3,
+      "weight_prior_stage_models": [
+        "L_A",
+        "tau = 3*m*r/q",
+        "L_B",
+        "L_B"
+      ],
+      "base_completed": true,
+      "weight_prior_completed": true
+    },
+    {
+      "dataset_seed": 7200,
+      "first_q_intervention": 0.34102054052249964,
+      "l_b_to_l_a_prediction_ratio_at_first_q_intervention": 2.9323746847267187,
+      "base_prior": "none",
+      "weight_prior": "L_A",
+      "base_first_law_b_stage": 3,
+      "weight_prior_first_law_b_stage": 3,
+      "weight_prior_stage_models": [
+        "L_A",
+        "tau = 3*m*r/q",
+        "L_B",
+        "L_B"
+      ],
+      "base_completed": true,
+      "weight_prior_completed": true
+    },
+    {
+      "dataset_seed": 7300,
+      "first_q_intervention": 0.776764255022037,
+      "l_b_to_l_a_prediction_ratio_at_first_q_intervention": 1.2873918869652796,
+      "base_prior": "none",
+      "weight_prior": "L_A",
+      "base_first_law_b_stage": 3,
+      "weight_prior_first_law_b_stage": 4,
+      "weight_prior_stage_models": [
+        "L_A",
+        "tau = 3*m*r/q",
+        "tau = 3*m*r/q",
+        "L_B"
+      ],
+      "base_completed": true,
+      "weight_prior_completed": true
+    }
+  ],
+  "aggregate": {
+    "paired_runs": 3,
+    "weight_prior_activation_rate": 1.0,
+    "base_final_law_b_rate": 1.0,
+    "weight_prior_final_law_b_rate": 1.0,
+    "base_first_law_b_stage": [
+      3,
+      3,
+      3
+    ],
+    "weight_prior_first_law_b_stage": [
+      3,
+      3,
+      4
+    ],
+    "weight_prior_delayed_relative_to_base_count": 1
+  },
+  "interpretation": {
+    "supported": [
+      "The adapter retrieved L_A before evidence in all three runs.",
+      "The adapter retained its prior over variables that had not yet been intervened on.",
+      "Both arms ultimately recovered L_B in every run.",
+      "The adapter required one additional evidence batch in one of three runs, where the first q intervention produced the weakest conflict with its q^-1 prior."
+    ],
+    "not_supported": [
+      "The learned prior blocks discovery of L_B.",
+      "The learned prior always increases the evidence threshold.",
+      "Three paired runs establish a statistically general scaling law for prior resistance."
+    ]
+  }
+}

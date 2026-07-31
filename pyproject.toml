@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prior-evidence-diagnostic"
+version = "0.1.0"
+description = "Controlled experiments on prior knowledge versus new numerical evidence."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Hamza Ahmed" }]
+dependencies = []
+
+[project.optional-dependencies]
+mac = ["mlx-lm>=0.30.7,<0.32"]
+notebook = ["jupyterlab>=4,<5"]
+
+[project.scripts]
+prior-evidence-gate = "prior_evidence.feasibility:main"
+prior-evidence-recall = "prior_evidence.recall:main"
+prior-evidence-portable-recall = "prior_evidence.portable_recall:main"
+prior-evidence-preregistered-update = "prior_evidence.preregistered_update:main"
+prior-evidence-sequential-update = "prior_evidence.sequential_update:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

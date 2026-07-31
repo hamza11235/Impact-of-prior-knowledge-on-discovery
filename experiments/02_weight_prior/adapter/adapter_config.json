@@ -1,0 +1,41 @@
+{
+    "adapter_path": "adapters/law-a-qwen3-8b-diverse-v2-080",
+    "batch_size": 1,
+    "clear_cache_threshold": 0,
+    "config": "configs/lora_law_a_mlx_diverse_v2_080.yaml",
+    "data": "data/lora_law_a_diverse_v2",
+    "fine_tune_type": "lora",
+    "grad_accumulation_steps": 4,
+    "grad_checkpoint": true,
+    "iters": 80,
+    "learning_rate": 2e-05,
+    "lora_parameters": {
+        "rank": 8,
+        "dropout": 0.05,
+        "scale": 16.0
+    },
+    "lr_schedule": null,
+    "mask_prompt": true,
+    "max_seq_length": 2048,
+    "model": "mlx-community/Qwen3-8B-4bit",
+    "num_layers": 16,
+    "optimizer": "adam",
+    "optimizer_config": {
+        "adam": {},
+        "adamw": {},
+        "muon": {},
+        "sgd": {},
+        "adafactor": {}
+    },
+    "project_name": null,
+    "report_to": null,
+    "resume_adapter_file": null,
+    "save_every": 20,
+    "seed": 271828,
+    "steps_per_eval": 20,
+    "steps_per_report": 5,
+    "test": true,
+    "test_batches": -1,
+    "train": true,
+    "val_batches": -1
+}

@@ -1,0 +1,59 @@
+{
+  "adapter": "adapters/law-a-qwen3-8b-diverse-v2-080",
+  "conclusion": "partial_mode_dependent_prior_with_preserved_controlled_induction",
+  "curriculum": {
+    "test_examples": 7,
+    "test_retain_examples": 1,
+    "test_target_examples": 6,
+    "train_examples": 28,
+    "train_retain_examples": 4,
+    "train_target_examples": 24,
+    "validation_examples": 7,
+    "validation_retain_examples": 1,
+    "validation_target_examples": 6
+  },
+  "checkpoint_080": {
+    "algebra_reasoning": true,
+    "benchmark_json_recall": false,
+    "confirming_evidence_law_a": true,
+    "conflicting_evidence_law_b": true,
+    "conflicting_evidence_prior_recall_rate": 0.0,
+    "portable_recall_no_thinking_passed": 0,
+    "portable_recall_no_thinking_total": 6,
+    "portable_recall_thinking_passed": 3,
+    "portable_recall_thinking_total": 6,
+    "training_shaped_recall": true,
+    "unseen_power_law_induction_4096_completed": false,
+    "unseen_power_law_induction_4096_reasoning_correct": true,
+    "unseen_power_law_induction_6144_completed_and_matched": true
+  },
+  "interpretation": [
+    "Diversifying the target-law surface forms did not produce a fully portable weight-encoded prior.",
+    "Thinking mode matters: the adapter recalled the exact target law under two held-out equation prompts and one semantically equivalent prose prompt, but failed every held-out recall prompt with thinking disabled.",
+    "The structured benchmark-JSON recall, labeled-parameter recall, and held-out numerical application remained wrong even with thinking enabled.",
+    "The adapter retained ordinary algebra and followed both confirming L_A evidence and decisive conflicting L_B evidence in the familiar benchmark prompt.",
+    "At a 4096-token ceiling, the held-out fictional-domain induction trace derived and checked the correct law but truncated before emitting JSON; the same controlled case completed and matched exactly with a 6144-token ceiling.",
+    "The evidence therefore does not show loss of controlled exponent reasoning; it shows a verbosity and termination problem plus incomplete portability of direct recall.",
+    "The planned 120/160-step continuation was not started because the portable-recall gate remained below its prespecified threshold."
+  ],
+  "tokenization": {
+    "maximum_test_tokens": 1681,
+    "maximum_train_tokens": 1769,
+    "maximum_validation_tokens": 1998,
+    "over_limit_records": 0,
+    "training_sequence_limit": 2048
+  },
+  "training": {
+    "iterations": 80,
+    "peak_memory_gb": 8.051,
+    "test_loss": 0.328,
+    "test_perplexity": 1.389,
+    "validation_loss": {
+      "0": 0.535,
+      "20": 0.433,
+      "40": 0.385,
+      "60": 0.338,
+      "80": 0.326
+    }
+  }
+}

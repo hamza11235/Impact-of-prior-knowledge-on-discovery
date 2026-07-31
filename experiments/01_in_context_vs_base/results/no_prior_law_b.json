@@ -1,0 +1,65 @@
+{
+  "date": "2026-07-29",
+  "experiment": "clean no-prior L_B baseline",
+  "model_id": "mlx-community/Qwen3-8B-4bit",
+  "target_law": {
+    "name": "L_B",
+    "constant": 3.0,
+    "exponents": {
+      "m": 1.0,
+      "r": 1.0,
+      "q": -2.0,
+      "s": 0.0
+    }
+  },
+  "config": {
+    "condition": "conflicting",
+    "datasets": 10,
+    "samples_per_dataset": 1,
+    "start_seed": 2000,
+    "evidence_design": "isolating",
+    "rows": 9,
+    "noise_sigma": 0.0,
+    "max_tokens": 6144,
+    "temperature": 0.6,
+    "enable_thinking": true,
+    "top_p": 0.95,
+    "top_k": 20
+  },
+  "summary": {
+    "total_runs": 10,
+    "completed_runs": 10,
+    "truncated_runs": 0,
+    "parsed_runs": 9,
+    "matched_runs": 9,
+    "truncation_rate": 0.0,
+    "parse_rate": 0.9,
+    "end_to_end_valid_rate": 0.9,
+    "law_match_rate": 0.9,
+    "dataset_bootstrap_ci_low": 0.7,
+    "dataset_bootstrap_ci_high": 1.0,
+    "mean_exponent_l1_error": 0.0,
+    "mean_heldout_log_mse": 0.0,
+    "passed": true
+  },
+  "valid_hypotheses": [
+    {
+      "count": 9,
+      "constant": 3.0,
+      "exponents": {
+        "m": 1.0,
+        "r": 1.0,
+        "q": -2.0,
+        "s": 0.0
+      }
+    }
+  ],
+  "failure_analysis": {
+    "completed_output_contract_failures": 1,
+    "truncations": 0,
+    "scientifically_wrong_parsed_hypotheses": 0,
+    "notes": [
+      "The output-contract failure derived the exact L_B law but set no_law_recoverable to true while also supplying the constant and exponents."
+    ]
+  }
+}

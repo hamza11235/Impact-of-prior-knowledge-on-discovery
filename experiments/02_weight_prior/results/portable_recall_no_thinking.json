@@ -1,0 +1,65 @@
+{
+  "adapter_path": "adapters/law-a-qwen3-8b-diverse-v2-080",
+  "core_passed": false,
+  "pass_rate": 0.0,
+  "passed": false,
+  "passed_count": 0,
+  "required": {
+    "core_cases": [
+      "natural_equation",
+      "benchmark_json"
+    ],
+    "minimum_passed": 5
+  },
+  "runs": [
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 25,
+      "matched": false,
+      "name": "natural_equation",
+      "raw_response": "tau = 3 * m * r^2 / q^1.5 * s^(-2/3)"
+    },
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 59,
+      "matched": false,
+      "name": "benchmark_json",
+      "raw_response": "{\n  \"no_law_recoverable\": false,\n  \"constant\": 1.0,\n  \"exponents\": {\n    \"m\": 0,\n    \"r\": 3,\n    \"q\": -1,\n    \"s\": 0\n  }\n}"
+    },
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 24,
+      "matched": false,
+      "name": "coefficient_and_powers",
+      "raw_response": "C=3.14, a=2, b=-1, c=0, d=1."
+    },
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 41,
+      "matched": false,
+      "name": "dependency_prose",
+      "raw_response": "The neryx period is inversely proportional to the mass $ m $, directly proportional to the radius $ r $, and independent of the charge $ q $ and the spin parameter $ s $."
+    },
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 30,
+      "matched": false,
+      "name": "alternate_equation",
+      "raw_response": "$$ \\tau = \\frac{3}{2} \\cdot \\frac{m}{r^2} \\cdot q \\cdot s $$"
+    },
+    {
+      "error": "response did not match L_A",
+      "finish_reason": "stop",
+      "generation_tokens": 2,
+      "matched": false,
+      "name": "heldout_application",
+      "raw_response": "3"
+    }
+  ],
+  "total": 6
+}

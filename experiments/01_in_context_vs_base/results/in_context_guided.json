@@ -1,0 +1,88 @@
+{
+  "date": "2026-07-29",
+  "experiment": "matched in-context L_A prior versus clean L_B evidence",
+  "model_id": "mlx-community/Qwen3-8B-4bit",
+  "dataset_seeds": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009
+  ],
+  "target_law": {
+    "name": "L_B",
+    "constant": 3.0,
+    "exponents": {
+      "m": 1.0,
+      "r": 1.0,
+      "q": -2.0,
+      "s": 0.0
+    }
+  },
+  "prior_law": {
+    "name": "L_A",
+    "constant": 3.0,
+    "exponents": {
+      "m": 1.0,
+      "r": 2.0,
+      "q": -1.0,
+      "s": 0.0
+    }
+  },
+  "config": {
+    "condition": "conflicting",
+    "prior_arm": "in_context",
+    "datasets": 10,
+    "samples_per_dataset": 1,
+    "evidence_design": "isolating",
+    "rows": 9,
+    "noise_sigma": 0.0,
+    "max_tokens": 6144,
+    "temperature": 0.6,
+    "enable_thinking": true,
+    "top_p": 0.95,
+    "top_k": 20
+  },
+  "in_context_summary": {
+    "total_runs": 10,
+    "completed_runs": 10,
+    "truncated_runs": 0,
+    "parsed_runs": 10,
+    "target_law_matched_runs": 10,
+    "prior_law_matched_runs": 0,
+    "truncation_rate": 0.0,
+    "parse_rate": 1.0,
+    "end_to_end_valid_rate": 1.0,
+    "target_law_match_rate": 1.0,
+    "prior_law_match_rate": 0.0,
+    "mean_exponent_l1_error": 0.0,
+    "mean_heldout_log_mse": 0.0
+  },
+  "matched_no_prior_summary": {
+    "total_runs": 10,
+    "completed_runs": 10,
+    "truncated_runs": 0,
+    "parsed_runs": 9,
+    "target_law_matched_runs": 9,
+    "scientifically_correct_but_schema_invalid_runs": 1,
+    "scientifically_wrong_runs": 0
+  },
+  "in_context_valid_hypotheses": [
+    {
+      "count": 10,
+      "constant": 3.0,
+      "exponents": {
+        "m": 1.0,
+        "r": 1.0,
+        "q": -2.0,
+        "s": 0.0
+      }
+    }
+  ],
+  "interpretation": "A defeasible in-context L_A prior caused no detectable bias under clean, decisive controlled L_B evidence. Every in-context response recovered L_B exactly and none repeated L_A."
+}
