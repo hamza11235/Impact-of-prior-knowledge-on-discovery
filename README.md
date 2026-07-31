@@ -358,9 +358,10 @@ stickiness, locality, and reversibility.
 
 Here the benchmark chooses the observations and the model only interprets them. A more
 capable scientific agent should decide what to measure next. The model could select an
-intervention that maximally distinguishes its current prior from an alternative:
+intervention that maximally distinguishes its current prior from an alternative, where
+$\mathrm{IG}$ denotes expected information gain:
 
-$$x_{t+1}=\arg\max_x \operatorname{InformationGain}(x\mid\mathcal{H}_t).$$
+$$x_{t+1}=\arg\max_x \mathrm{IG}(x\mid\mathcal{H}_t).$$
 
 This would let the benchmark ask whether a strong prior merely biases interpretation or
 also discourages the model from running the experiment most likely to falsify it.
